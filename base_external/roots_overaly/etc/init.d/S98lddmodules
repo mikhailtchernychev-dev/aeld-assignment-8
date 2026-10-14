@@ -14,12 +14,14 @@ case "$1" in
         /sbin/module_load faulty
         modprobe hello
         /sbin/scull_load
+	/sbin/aesdchar_load
         ;;
     stop)
         echo "Unloading kernel modules ..."
         /sbin/module_unload  faulty
         rmmod hello
         /sbin/scull_unload
+	/sbin/aesdchar_unload
         ;;
     restart|force-reload)
         $0 stop
